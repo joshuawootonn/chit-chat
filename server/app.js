@@ -13,4 +13,6 @@ const io = require('socket.io')(server)
 
 io.on('connection',(socket) => {
   console.log('New User Connected')
+  socket.emit('connection_success', "You connected successfully!")
+  socket.on('disconnect', () => console.log('User Disconnected'))
 })
