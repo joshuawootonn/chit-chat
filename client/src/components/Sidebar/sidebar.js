@@ -1,13 +1,33 @@
 import React, { Component } from 'react'
 
-class componentName extends Component {
+import {Layout} from 'antd'
+
+const {Sider,Content} = Layout
+
+class Sidebar extends Component {
   render () {
     return (
-      <div>
-        
-      </div>
+      <Layout>
+        <Sider>
+          left sidebar
+        </Sider>
+        <Content>
+          {this.props.children}
+        </Content>        
+      </Layout>
     )
   }
 }
 
-export default componentName
+export default Sidebar
+
+
+// <Layout>
+//   <Header>header</Header>
+//   <Layout>
+//     <Sider>left sidebar</Sider>
+//     <Content>main content</Content>
+//     <Sider>right sidebar</Sider>
+//   </Layout>
+//   <Footer>footer</Footer>
+// </Layout>
