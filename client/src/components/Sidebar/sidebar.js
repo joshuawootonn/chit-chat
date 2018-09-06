@@ -2,20 +2,15 @@ import React, { Component } from 'react'
 
 import {Layout} from 'antd'
 
-const {Sider,Content} = Layout
+const {Sider} = Layout;
 
 class Sidebar extends Component {
   render () {
     console.log(this.props);
     return (
-      <Layout>
-        <Sider>
-          left sidebar
-        </Sider>
-        <Content>
-          {this.props.children}
-        </Content>        
-      </Layout>
+      <Sider>
+        left sidebar
+      </Sider>
     )
   }
 }

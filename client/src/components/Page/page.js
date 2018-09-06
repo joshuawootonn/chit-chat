@@ -1,11 +1,15 @@
 import React, { Component } from 'react'
 
+import {Layout} from 'antd';
+
+const {Content} = Layout
+
 class Page extends Component {
   render () {
     return (
-      <div>
-        
-      </div>
+      <Content>
+        {this.props.children}
+      </Content>
     )
   }
 }

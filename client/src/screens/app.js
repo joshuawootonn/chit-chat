@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 
-import './app.css'
+import {Layout} from 'antd';
 
-import socket, {CONNECTION_SUCCESS, NEW_MESSAGE} from './api';
+import socket, {CONNECTION_SUCCESS, NEW_MESSAGE} from '../api';
 
-import Sidebar from './components/Sidebar';
+import ChatboxContainer from '../containers/chatboxContainer';
+import ChatlogContainer from '../containers/chatlogContainer';
+import SidebarContainer from '../containers/sidebarContainer';
+
+const {Sider,Content} = Layout
 
 class App extends Component {
   constructor() {
@@ -28,14 +32,15 @@ class App extends Component {
   render() {
     const {message,newMessageResponse} = this.state;
     return (
-      <Sidebar>
-        {message}
-        <p>
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-        {newMessageResponse}
-        <button onClick={this.send}>click to send a new message</button>
-      </Sidebar>
+      <Layout>
+        <Sider>
+          <SidebarContainer />
+        </Sider>
+        <Content>
+          <ChatlogContainer />
+          <ChatboxContainer />
+        </Content>        
+      </Layout>
     );
   }
 }
