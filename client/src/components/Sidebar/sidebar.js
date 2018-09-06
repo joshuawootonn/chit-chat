@@ -6,6 +6,7 @@ const {Sider,Content} = Layout
 
 class Sidebar extends Component {
   render () {
+    console.log(this.props);
     return (
       <Layout>
         <Sider>
