@@ -5,10 +5,10 @@ import { Layout } from "antd";
 
 import socket, { CONNECTION_SUCCESS, NEW_MESSAGE } from "../api";
 
-import {styleCreator} from '../helpers/style'
-import ChatboxContainer from "../containers/chatboxContainer";
-import ChatlogContainer from "../containers/chatlogContainer";
-import SidebarContainer from "../containers/sidebarContainer";
+import {styleCreator} from 'helpers/style'
+import ChatboxContainer from "containers/chatboxContainer";
+import ChatlogContainer from "containers/chatlogContainer";
+import SidebarContainer from 'containers/sidebarContainer'
 
 const { Sider, Content, Footer } = Layout;
 
