@@ -1,13 +1,22 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import ChatboxForm from 'components/forms/Chatbox';
+import { Formik } from "formik";
+
+import ChatboxForm from "components/forms/Chatbox";
 
 class ChatboxContainer extends Component {
   render() {
     return (
-      <div>
-        <ChatboxForm />
-      </div>
+      <Formik
+        initialValues={{ message: "" }}
+        onSubmit={(values,{resetForm }) => {
+          resetForm();
+        }}
+        render={props => {
+          console.log(props.values);
+          return <ChatboxForm {...props}  />;
+        }}
+      />
     );
   }
 }
