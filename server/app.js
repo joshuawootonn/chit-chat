@@ -17,12 +17,8 @@ io.on('connection',(socket) => {
   socket.on('disconnect', () => console.log('User Disconnected'))
   
   socket.on('new_message', (data) => {    
-    io.sockets.emit('new_message', "New Message Received: " + data)
+    io.sockets.emit('new_message', data)
   })
 })
 
 
-// io.on('new_message', (message) => {
-  
-//   io.sockets.emit('new_message', "New Message Received: " + message)
-// })

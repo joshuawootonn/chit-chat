@@ -31,13 +31,9 @@ class App extends Component {
     socket.on(CONNECTION_SUCCESS, message => {
       this.setState({ message });
     });
-  socket.on(NEW_MESSAGE, message =>   {
+    socket.on(NEW_MESSAGE, message =>   {
       this.setState({ newMessageResponse: message });
     });
-  };
-  send = () => {
-    console.log("asdf");
-    socket.emit(NEW_MESSAGE, "dsafjldskjfa skldjfaslkdjf alksdjfkalsdjl");
   };
   render() {
     const { message, newMessageResponse } = this.state;
