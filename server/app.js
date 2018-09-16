@@ -1,15 +1,29 @@
-const express = require('express')
-const app = express()
+const Hapi = require('hapi');
 
 
+const server = Hapi.server({
+    port: 4000,
+    host: 'localhost'
+});
 
-app.get('/', (req,res) => {
-  res.send('HELLO WORLDS')
-})
+const io = require('socket.io')(server.listener)
 
-server = app.listen(4000)
+require('route')
 
-const io = require('socket.io')(server)
+const init = async () => {
+
+    await server.start();
+    console.log(`Server running at: ${server.info.uri}`);
+};
+
+process.on('unhandledRejection', (err) => {
+    console.log(err);
+    process.exit(1);
+});
+
+init();
+
+
 
 io.on('connection',(socket) => {
   console.log('New User Connected')
